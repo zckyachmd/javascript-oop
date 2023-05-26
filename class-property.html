@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <title>Class Property</title>
+</head>
+
+<body>
+  <h1>Class Property</h1>
+  <p>Open console to see the result</p>
+
+  <script>
+    // Class
+    // In ES6, we can use class to create object with constructor and methods inside it (like OOP)
+    // Its similar to constructor function in ES5 but with more features and cleaner syntax
+    class Person {
+      // Constructor
+      // Constructor is a method that runs when we instantiate an object from a class
+      // We can pass parameters to constructor to set the properties of the object
+      constructor(firstName, lastName) {
+        // Properties
+        // We can set properties of the object inside constructor method
+        // We can also set properties of the object outside constructor method
+        this.firstName = firstName;
+        this.lastName = lastName;
+      }
+    }
+
+    const person = new Person("Zacky", "Achmad"); // We can pass parameters to constructor to set the properties of the object (firstName, lastName)
+    console.log(person);
+  </script>
+</body>
+
+</html>

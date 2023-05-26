@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <title>Prototype Inrheritance</title>
+</head>
+
+<body>
+  <h1>Prototype Inrheritance</h1>
+  <p>Open console to see the result</p>
+
+  <script>
+    // Prototype Inheritance
+    // Example:
+    function Employee(name) {
+      this.name = name;
+    }
+
+    function Manager(name) {
+      this.name = name;
+    }
+
+    // Inherit prototype from Employee to Manager
+    Manager.prototype = Object.create(Employee.prototype); // Use Object.create() to inherit prototype from Employee to Manager (Is not recommended to use new keyword to inherit prototype from Employee to Manager)
+
+    // Add instance method to Employee prototype
+    Employee.prototype.sayHello = function (name) {
+      console.log(`Hello ${name}, my name is ${this.name}`);
+    }
+
+    // Add instance method to Manager prototype
+    Manager.prototype.sayHello = function (name) {
+      console.log(`Hello ${name}, my name is ${this.name}`);
+    }
+
+    // Create object from Employee class (constructor function)
+    const zacky = new Employee('Zacky');
+    zacky.sayHello('Budi');
+
+    // Create object from Manager class (constructor function)
+    const budi = new Manager('Budi');
+    budi.sayHello('Zacky');
+  </script>
+</body>
+
+</html>

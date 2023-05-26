@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <title>Error Handling</title>
+</head>
+
+<body>
+  <h1>Error Handling</h1>
+  <p>Open console to see the result</p>
+
+  <script>
+    // Error Handling
+    // Error Handling merupakan teknik untuk mengatasi error yang terjadi, dengan menggunakan try catch kita bisa mengatasi error yang terjadi, ketika error terjadi, program tidak akan berhenti, program akan tetap berjalan dan menampilkan pesan error yang kita inginkan.
+    // Ketika kita menggunakan try catch, kita harus menuliskan kode yang berpotensi error di dalam try, dan menuliskan kode untuk menangkap error di dalam catch.
+    class MatUtil {
+      // static method
+      static sum(...numbers) {
+        if (numbers.length === 0) {
+          throw new Error('Please input number');
+        }
+
+        return numbers.reduce((prev, curr) => prev + curr);
+      }
+    }
+
+    try {
+      console.info(MatUtil.sum()); // Error: Please input number
+      console.info(MatUtil.sum(1, 2, 3, 4, 5)); // 15
+    } catch (error) {
+      console.log(`Error: ${error.message}`);
+    } finally {
+      // Finally
+      // Finally merupakan blok yang akan selalu dijalankan ketika try catch selesai dijalankan, baik itu terjadi error atau tidak.
+      console.log('Finally');
+    }
+
+  </script>
+</body>
+
+</html>

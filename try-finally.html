@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <title>Try Finally</title>
+</head>
+
+<body>
+  <h1>Try Finally</h1>
+  <p>Open console to see the result</p>
+
+  <script>
+    // Try Finally
+    // Try Finally digunakan untuk mengeksekusi kode yang ada di dalam block finally, kode tersebut akan dijalankan setelah kode di dalam block try selesai dijalankan, baik itu berhasil atau gagal.
+    class Counter {
+      #counter = 0; // private field
+
+      increment() {
+        try {
+          return this.#counter += 1;
+        } finally {
+          console.log('Finally');
+        }
+      }
+    }
+
+    const counter = new Counter();
+    console.log(counter.increment());
+    console.log(counter.increment());
+    console.log(counter.increment());
+    console.log(counter.increment());
+    console.log(counter.increment());
+  </script>
+</body>
+
+</html>

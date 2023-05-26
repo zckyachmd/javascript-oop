@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <title>Public Class Field</title>
+</head>
+
+<body>
+  <h1>Public Class Field</h1>
+  <p>Open console to see the result</p>
+  <script>
+    // Public Class Field
+    // Public Class Field is a new feature in ES6 that allows us to define fields directly on the class. It is a syntactic
+
+    class Customer {
+      // This is a public class field (property) that can be accessed from outside the class
+      // The level of access is public is similar to the level of access in the constructor function & method
+      firstName;
+      lastName;
+      balance = 0;
+
+      constructor(firstName, lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+      }
+
+      sayHello() {
+        return `Hello ${this.firstName} ${this.lastName}`;
+      }
+    }
+
+    const zacky = new Customer("Zacky", "Achmad");
+    console.log(zacky);
+  </script>
+</body>
+
+</html>

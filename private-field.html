@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <title>Private Class Field</title>
+</head>
+
+<body>
+  <h1>Private Class Field</h1>
+  <p>Open console to see the result</p>
+  <script>
+    // Private Class Field
+    // Private Class Field is a new feature in ES6 that allows us to define fields directly on the class. It is a syntactic
+
+    class Counter {
+      // This is a private class field (property) that can't be accessed from outside the class
+      // The level of access is private is similar to the level of access in the constructor function & method
+      #count = 0;
+
+      increment() {
+        this.#count++;
+      }
+
+      decrement() {
+        this.#count--;
+      }
+
+      get() {
+        return this.#count;
+      }
+    }
+
+    const counter = new Counter();
+    counter.increment();
+    counter.increment();
+    counter.increment();
+    counter.decrement();
+    console.log(counter.get());
+
+  </script>
+</body>
+
+</html>

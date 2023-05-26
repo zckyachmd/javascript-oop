@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <title>Class Constuctor Inheritance</title>
+</head>
+
+<body>
+  <h1>Class Constuctor Inheritance</h1>
+  <p>Open console to see the result</p>
+
+  <script>
+    // Class Constuctro Inheritance (Superclass)
+    // In ES6, we can use class to create object with constructor and methods inside it (like OOP)
+    // Use extends keyword to create subclass (child class) from superclass (parent class)
+    class Employee {
+      constructor(firstName) {
+        this.firstName = firstName;
+      }
+
+      sayHello(name) {
+        console.log(`Hello ${name}, my name is Employee ${this.firstName}`);
+      }
+    }
+
+    // Manager class is a subclass (child class) of Employee class (superclass/parent class)
+    class Manager extends Employee {
+      // If you want to add constructor to subclass, you must call super() method inside it
+      constructor(firstName, lastName) {
+        super(firstName); // super() method will call constructor of superclass (parent class)
+        this.lastName = lastName;
+      }
+
+      sayHello(name) {
+        console.log(`Hello ${name}, my name is Manager ${this.firstName} ${this.lastName}`);
+      }
+    }
+
+    const zacky = new Employee("Zacky");
+    zacky.sayHello("Achmad");
+
+    const achmad = new Manager("Achmad", "Rifai");
+    achmad.sayHello("Zacky");
+
+    console.info(zacky);
+    console.info(achmad);
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <title>Static Class Method</title>
+</head>
+
+<body>
+  <h1>Static Class Method</h1>
+  <p>Open console to see the result</p>
+
+  <script>
+    // Static Class Method
+    // Static Method dibuat dengan menambahkan keyword static sebelum nama methodnya, jika kita ingin mengakses method tersebut kita tidak perlu membuat instance dari classnya, kita bisa langsung mengaksesnya dengan menggunakan nama class nya.
+    // Dengan menambahkan static keyword, method tersebut merupakan milik class bukan milik object, jadi kita tidak bisa mengakses property yang ada di dalam class tersebut, karena property tersebut milik object bukan milik class.
+
+    class MatUtil {
+      // static method
+      static sum(...numbers) {
+        return numbers.reduce((prev, curr) => prev + curr);
+      }
+    }
+
+    const result = MatUtil.sum(1, 2, 3, 4, 5);
+    console.log(result); // 15
+  </script>
+</body>
+
+</html>

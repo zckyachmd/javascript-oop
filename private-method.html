@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <title>Class Private Method</title>
+</head>
+
+<body>
+  <h1>Class Private Method</h1>
+  <p>Open console to see the result</p>
+
+  <script>
+    // Class Private Method
+    // Class Private Method is a new feature in ES6 that allows us to define private methods directly on the class. It is a syntactic
+    // sugar for defining private methods inside the constructor function.
+
+    class Person {
+      say(name) {
+        if (name) {
+          this.#sayWithName(name);
+        } else {
+          this.#sayWithoutName();
+        }
+      }
+
+      #sayWithName(name) {
+        console.log(`Hello ${name}`);
+      }
+
+      #sayWithoutName() {
+        console.log(`Hello`);
+      }
+    }
+
+    const zacky = new Person();
+    zacky.say("Zacky");
+  </script>
+</body>
+
+</html>

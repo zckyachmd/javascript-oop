@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <title>Error Custom</title>
+</head>
+
+<body>
+  <h1>Error Custom</h1>
+  <p>Open console to see the result</p>
+
+  <script>
+    // Error Custom
+    // Error Custom digunakan untuk membuat error sendiri, dengan menggunakan class Error.
+
+    class ValidationError extends Error {
+      constructor(message, field) {
+        super(message); // call parent constructor
+        this.field = field;
+      }
+    }
+
+    class MatUtil {
+      // static method
+      static sum(...numbers) {
+        if (numbers.length === 0) {
+          throw new ValidationError('Please input number', 'numbers'); // throw error custom
+        }
+
+        return numbers.reduce((prev, curr) => prev + curr);
+      }
+    }
+
+    try {
+      console.info(MatUtil.sum()); // Error: Please input number
+      console.info(MatUtil.sum(1, 2, 3, 4, 5)); // 15
+    } catch (error) {
+      if (error instanceof ValidationError) {
+        console.log(`Error: ${error.message}, Field: ${error.field}`);
+      } else {
+        console.log(`Error: ${error.message}`);
+      }
+    }
+  </script>
+</body>
+
+</html>

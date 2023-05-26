@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <title>Operator InstanceOf</title>
+</head>
+
+<body>
+  <h1>Operator InstanceOf</h1>
+  <p>Open console to see the result</p>
+
+  <script>
+    // Operator InstanceOf digunakan untuk mengecek apakah sebuah object merupakan instance dari class tertentu atau tidak hasilnya berupa boolean (true/false)
+    // Dapat digunakan untuk mengecek apakah sebuah object merupakan instance dari class parent atau class childnya
+
+    class Employee {
+
+    }
+
+    class Manager extends Employee {
+
+    }
+
+    const zacky = new Employee();
+    const achmad = new Manager();
+
+    // cek apakah zacky merupakan instance dari class Employee
+    console.log(zacky instanceof Employee); // true
+    console.log(zacky instanceof Manager); // false
+
+    // cek apakah achmad merupakan instance dari class Manager extends Employee
+    console.log(achmad instanceof Employee); // true (karena Manager extends Employee)
+    console.log(achmad instanceof Manager); // true
+  </script>
+</body>
+
+</html>

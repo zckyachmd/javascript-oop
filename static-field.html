@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <title>Static Class Field</title>
+</head>
+
+<body>
+  <h1>Static Class Field</h1>
+  <p>Open console to see the result</p>
+
+  <script>
+    // Static Class Field adalah sebuah fitur baru yang diperkenalkan di ES2021 yang memungkinkan kita untuk mendefinisikan sebuah static field di dalam sebuah class dengan menggunakan keyword static dan memberikan nilai defaultnya.
+    // Static Class Field dapat digunakan untuk menyimpan data yang sama untuk setiap instance dari class tersebut.
+    // Static Class Field dapat diakses dari class itu sendiri dan tidak dapat diakses dari instance dari class tersebut.
+    // Static Class Field memiliki hasil yang sama ketika diakses dari class manapun.
+
+    class configuration {
+      static name = 'Belajar Javascript OOP';
+      static version = '1.0.0';
+      static author = 'Zacky Achmad';
+    }
+
+    configuration.version = '1.0.1'; // dapat mengubah nilai static field
+
+    const config = new configuration();
+    console.log(config); // configuration {} (tidak ada static field yang ditampilkan)
+    console.log(config.name); // undifined (tidak dapat mengakses static field dari instance)
+    console.log(configuration.name); // Belajar Javascript OOP (dapat mengakses static field dari class)
+  </script>
+</body>
+
+</html>

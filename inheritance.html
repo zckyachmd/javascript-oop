@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <title>Constructor Inheritance Function</title>
+</head>
+
+<body>
+  <h1>Constructor Inheritance Function</h1>
+  <p>Open console to see the result</p>
+  <script>
+    // Constructor Inheritance Function
+    // Inheritance is a concept of object oriented programming that allows us to reuse code from other class (constructor function) to create new class (constructor function) with additional properties and methods.
+    // In old version of JS, we use constructor function to create object and add properties and methods to it.
+    // Function name should be in Pascal case. (First letter of each word should be capital)
+    // Example: This is a constructor function
+    function Employee(firstName) {
+      this.firstName = firstName;
+      this.sayHello = function (name) {
+        console.log(`Hello ${name}, my name is ${this.firstName}`);
+      }
+    }
+
+    // Constructor Inheritance Functions
+    // To inherit properties and methods from other class (constructor function), we use call() method
+    // call() method is a method of function that allows us to call a function with a given this value and arguments provided individually
+    function Manager(firstName, lastName) {
+      // Inherit properties and methods from employee class (constructor function)
+      this.lastName = lastName;
+      Employee.call(this, firstName); // Inheritance from Employee class (constructor function)
+    }
+
+    const zacky = new Manager('Zacky', 'Achmad');
+
+    // Print the object to console
+    console.log(zacky);
+  </script>
+</body>
+
+</html>

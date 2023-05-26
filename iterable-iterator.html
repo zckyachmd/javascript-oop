@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <title>Iterable & Iterator</title>
+</head>
+
+<body>
+  <h1>Iterable & Iterator</h1>
+  <p>Open console to see the result</p>
+
+  <script>
+    // Iterable
+    // Iterable adalah sebuah object yang dapat diulang nilai-nilainya, contohnya seperti array. Iterable juga dapat diartikan sebagai sebuah object yang memiliki method dengan nama Symbol.iterator. Method tersebut akan dijalankan ketika object tersebut diiterasi (diulang).
+    // Standar ES6 secara otomatis kita harus melakukan iterasi terhadap iterable menggunakan perulangan for of, jika kita ingin melakukan iterasi menggunakan perulangan for biasa, kita harus mengubah iterable menjadi array terlebih dahulu menggunakan method Array.from().
+    // Contoh iterable adalah array, string, map, set, dan lain-lain.
+
+
+    // Iterator
+    // Iterator adalah sebuah object yang memiliki method next(), method tersebut akan mengembalikan object dengan property value dan done. Property value akan berisi nilai dari iterasi saat ini, sedangkan property done akan berisi boolean yang menandakan apakah iterasi sudah selesai atau belum.
+    // Untuk membuat iterator kita harus membuat object dengan method next() yang mengembalikan object dengan property value dan done.
+
+    // Kontrak Iterator Result
+    class CounterIteratorResult {
+      constructor(value, done) {
+        this.value = value;
+        this.done = done;
+      }
+    }
+
+    // Kontrak Iterable
+    class CounterIterator {
+      constructor(value, max) {
+        this.value = value;
+        this.max = max;
+      }
+
+      next() {
+        let value = this.value;
+        let done = value > this.max;
+
+        if (!done) {
+          this.value++;
+        }
+
+        return new CounterIteratorResult(value, done);
+      }
+    }
+
+    // Kontrak Iterator
+    class Counter {
+      constructor(value, max) {
+        this.value = value;
+        this.max = max;
+      }
+
+      [Symbol.iterator]() {
+        return new CounterIterator(this.value, this.max);
+      }
+    }
+
+    // Implementasi Iterable & Iterator
+    const counter = new Counter(1, 5);
+    for (const iterator of counter) {
+      console.info(iterator);
+    }
+  </script>
+</body>
+
+</html>

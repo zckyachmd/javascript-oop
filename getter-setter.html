@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <title>Getter & Setter</title>
+</head>
+
+<body>
+  <h1>Getter & Setter</h1>
+  <p>Open console to see the result</p>
+
+  <script>
+    // Getter & Setter
+    // Getter & Setter are used to get and set the value of an object's private variable.
+
+    class Person {
+      constructor(firstName, lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+      }
+
+      // Getter
+      // The get syntax binds an object property to a function that will be called when that property is looked up.
+      get fullName() {
+        return `${this.firstName} ${this.lastName}`;
+      }
+
+      // Setter
+      // The set syntax binds an object property to a function to be called when there is an attempt to set that property.
+      set fullName(value) {
+        const parts = value.split(' ');
+        this.firstName = parts[0];
+        this.lastName = parts[1];
+      }
+    }
+
+    // Getter
+    const zacky = new Person('Zacky', 'Achmad');
+    console.log(zacky);
+    console.log(zacky.fullName);
+
+    // Setter
+    zacky.fullName = 'Zacky Khaefi';
+    console.log(zacky);
+  </script>
+</body>
+
+</html>

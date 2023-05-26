@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <title>Prototype</title>
+</head>
+
+<body>
+  <h1>Prototype</h1>
+  <p>Open console to see the result</p>
+  <script>
+    // Constructor Function
+    // In old version of JS, we use constructor function to create object and add properties and methods to it.
+    // Function name should be in Pascal case. (First letter of each word should be capital)
+    // Example: This is a constructor function
+    // Person = function () { } // Pascal case
+    // firstName, lastName // Parameters of function should be in camel case
+    function Person(firstName, lastName) {
+      // Properties of object are defined using this keyword and dot notation
+      // this keyword refers to the current object
+      // this keyword is field by passing parameters to constructor function
+      this.firstName = firstName;
+      this.lastName = lastName;
+
+      // Methods of object are defined using this keyword and dot notation
+      // this keyword refers to the current object
+      // this keyword is used to access properties and methods of current object
+      this.sayHello = function (name) {
+        // name is a parameter of function
+        // this.firstName & this.lastName are properties of object
+        console.log(`Hello ${name}, my name is ${this.firstName} ${this.lastName}`);
+      }
+    }
+
+    // Prototype keyword is used to add instance method to constructor function
+    Person.prototype.sayBye = function () {
+      console.log(`Bye!`);
+    }
+
+    Person.prototype.run = function () {
+      console.log($this.firstName + ' is running');
+    }
+
+    // To create object from constructor function, we use new keyword
+    const zacky = new Person('Zacky', 'Achmad'); // zacky is an object of Person class (constructor function) have parameters firstName and lastName with values 'Zacky' and 'Achmad' respectively
+    // Change the properties of object in zacky (Not recommended to change properties of object)
+    // zacky.firstName = 'Zacky';
+    // zacky.lastName = 'Achmad';
+    zacky.sayHello('Budi');
+    // Add instance method to object zacky (Not recommended to add instance method to object)
+    zacky.sayBye = function () {
+      console.log(`Bye!`);
+    }
+
+    const budi = new Person('Budi', 'Santoso');
+    // Change the properties of object in budi
+    // budi.firstName = 'Budi';
+    // budi.lastName = 'Santoso';
+    budi.sayHello('Zacky');
+
+    // Access instance on prototype of object Person
+    budi.sayBye();
+
+    // Print the object to console
+    console.log(zacky);
+    console.log(budi);
+  </script>
+</body>
+
+</html>

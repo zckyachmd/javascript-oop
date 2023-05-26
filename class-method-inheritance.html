@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <title>Class Method Inheritance</title>
+</head>
+
+<body>
+  <h1>Class Method Inheritance</h1>
+  <p>Open console to see the result</p>
+
+  <script>
+    // Class Method Inheritance (Superclass)
+    // In ES6, we can use class to create object with constructor and methods inside it (like OOP)
+
+    class Paint {
+      paint() {
+        console.log("Painting...");
+      }
+    }
+
+    class Circle extends Paint {
+      paint() {
+        super.paint(); // super() method will call method of superclass (parent class)
+        console.log("Painting circle...");
+      }
+    }
+
+    const circle = new Circle();
+    circle.paint();
+  </script>
+</body>
+
+</html>
